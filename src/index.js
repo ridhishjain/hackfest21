@@ -6,20 +6,20 @@ import { Router, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
 // pages for this product
-import Components from "views/Components/Components.js";
-import LandingPage from "views/LandingPage/LandingPage.js";
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
-import LoginPage from "views/LoginPage/LoginPage.js";
+import Home from "./containers/Home/index.js";
+import About from "./containers/About/index.js";
+import ProfilePage from "containers/ProfilePage/ProfilePage.js";
+import Auth from "./containers/Auth/index.js";
 
-var hist = createBrowserHistory();
+var history = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
+  <Router history={history}>
     <Switch>
-      <Route path="/landing-page" component={LandingPage} />
+      <Route path="/about" component={About} />
       <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login-page" component={LoginPage} />
-      <Route path="/" component={Components} />
+      <Route path="/auth" component={Auth} />
+      <Route path="/" component={Home} />
     </Switch>
   </Router>,
   document.getElementById("root")
