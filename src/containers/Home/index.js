@@ -34,29 +34,48 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 
 const useStyles = makeStyles(styles);
 
-function postdata(e){
-    e.preventDefault();
-    alert("post started");
-    let url = document.getElementById("imageURL").value;
-    
-    fetch("https://jsonplaceholder.typicode.com/posts",{
-        method : "POST",
-        headers : {
-            "Accept" : "application/json, text/plain",
-            "Content-type" : "application/json"
-        },
-        body : JSON.stringify({body:url})
-    }).then(
-        (response) => response.json()
-    ).then(
-        (data) => {
-            alert("look for the console to see if the new enr=try is added");
-            console.log(data);
-            
-        }
-    )    
+async function postdata(e){
+  console.log("aa gaya");
+  /*const urlImage = "https://storage.googleapis.com/kagglesdsdata/comps%2F14774%2F536888%2Ftest_images%2F010d915e229a.png?GoogleAccessId=datasets-dataviewer@kaggle-161607.iam.gserviceaccount.com&Expires=1569753196&Signature=C%2BOQjWa0stodnJO49%2B6IPrZ0oYOOwDK53hUazUWsHCA0qnx2X%2BJDH6MfoqABVU98YmvRxzBZ0zF0XdHomzI2uwlwpTkFlrZzcbHYdD2xV0qVKvbigvqvcRFbltJarzLQLWN1Pab1ZW%2F1W3o%2FHRKw0wMivJuOdddQokFzeIuJGKoyHt2QGSVBF43zmHIlkymA8IMJMz1SOALk1tTK6qm58TashdE%2Fv3n%2BpiAL3401oTyDF0xCZVqJDvT3d7GCZtlvpLlJJd3xXsJ2IZvQKLfPWe6gqQOwLVzMVOhBN0kSVu4o95WwCSWaUqSJKgSRJAarZoj9l5cqa82ODUv2%2FpcGWg%3D%3D";
 
-    
+    try{
+      await fetch("https://10.42.0.1:5000/",{
+        method : "POST",
+        headers : { "Content-type" : "application/json" },
+        body : { "url": urlImage }
+      }).then(
+        (response) => console.log(response)
+      );
+
+    } catch(error) {
+      console.log(error);
+    }*/
+    var data = JSON.stringify({
+  "url": "https://storage.googleapis.com/kagglesdsdata/comps%2F14774%2F536888%2Ftest_images%2F010d915e229a.png?GoogleAccessId=datasets-dataviewer@kaggle-161607.iam.gserviceaccount.com&Expires=1569753196&Signature=C%2BOQjWa0stodnJO49%2B6IPrZ0oYOOwDK53hUazUWsHCA0qnx2X%2BJDH6MfoqABVU98YmvRxzBZ0zF0XdHomzI2uwlwpTkFlrZzcbHYdD2xV0qVKvbigvqvcRFbltJarzLQLWN1Pab1ZW%2F1W3o%2FHRKw0wMivJuOdddQokFzeIuJGKoyHt2QGSVBF43zmHIlkymA8IMJMz1SOALk1tTK6qm58TashdE%2Fv3n%2BpiAL3401oTyDF0xCZVqJDvT3d7GCZtlvpLlJJd3xXsJ2IZvQKLfPWe6gqQOwLVzMVOhBN0kSVu4o95WwCSWaUqSJKgSRJAarZoj9l5cqa82ODUv2%2FpcGWg%3D%3D"
+});
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", "http://10.42.0.1:5000/aptos/");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("User-Agent", "PostmanRuntime/7.15.0");
+xhr.setRequestHeader("Accept", "*/*");
+xhr.setRequestHeader("Cache-Control", "no-cache");
+xhr.setRequestHeader("Postman-Token", "467f9cad-9a43-4eb5-a47c-28bbc8e9e579,b4dfe59c-74af-4702-9995-c6f5d7199f65");
+xhr.setRequestHeader("Host", "10.42.0.1:5000");
+xhr.setRequestHeader("accept-encoding", "gzip, deflate");
+xhr.setRequestHeader("content-length", "584");
+xhr.setRequestHeader("Connection", "keep-alive");
+xhr.setRequestHeader("cache-control", "no-cache");
+
+xhr.send(data);
 }
 
 export default function Home(props) {
@@ -91,8 +110,8 @@ export default function Home(props) {
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
-      <input id="inputURL" type="text">
-      </input>
+        <input id="inputURL" type="text">
+        </input>
       <button onClick={postdata}> Click Me </button>
       hii <br />
       hii <br />
@@ -114,7 +133,7 @@ export default function Home(props) {
       hii <br />
 
        </div>
-{/*  
+{/*
         <SectionBasics />
         <SectionNavbars />
         <SectionTabs />
@@ -127,7 +146,7 @@ export default function Home(props) {
         <SectionExamples />
         <SectionDownload />
      */}
-     
+
       <Footer />
     </div>
   );
