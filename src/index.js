@@ -8,8 +8,8 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 // pages for this product
 import Home from "./containers/Home/index.js";
 import About from "./containers/About/index.js";
-import ProfilePage from "containers/ProfilePage/ProfilePage.js";
 import Auth from "./containers/Auth/index.js";
+import ProfilePage from "containers/ProfilePage/ProfilePage.js";
 
 var history = createBrowserHistory();
 

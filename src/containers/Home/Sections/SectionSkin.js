@@ -5,11 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+// @material-ui/icons
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
 import DescriptionIcon from "@material-ui/icons/Description";
-import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -24,7 +24,6 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/tabsS
 const useStyles = makeStyles(styles);
 
 let image = null;
-let heatmap = "http://10.42.0.1:5000/get-image/output_heat_map.png";
 let imageURL = null;
 let result = null;
 
@@ -34,29 +33,29 @@ const storeUrl = async function(e) {
 
 const store = async function(e) {
   image = e.target.files[0];
-  const uploadTask = storage.ref(`aptos/${image.name}`).put(image);
+  const uploadTask = storage.ref(`skin/${image.name}`).put(image);
   uploadTask.on(
     "state_changed",
-    snapshot => {
+    () => {
       console.log("uploading...");
-      document.getElementById("uploading").style.display = "inline";
+      document.getElementById("uploadingSkin").style.display = "inline";
     },
     error => {
       console.log(error);
     },
     async () => {
       await storage
-        .ref("aptos")
+        .ref("skin")
         .child(image.name)
         .getDownloadURL()
         .then(url => {
           imageURL = url;
           console.log(imageURL);
-          document.getElementById("uploading").style.display = "none";
-          document.getElementById("resultButton").style.display = "inline";
-          document.getElementById("uploadedImageDivision").style.display =
+          document.getElementById("uploadingSkin").style.display = "none";
+          document.getElementById("resultButtonSkin").style.display = "inline";
+          document.getElementById("uploadedImageDivisionSkin").style.display =
             "flex";
-          document.getElementById("uploadedImage").src = imageURL;
+          document.getElementById("uploadedImageSkin").src = imageURL;
         });
     }
   );
@@ -64,7 +63,7 @@ const store = async function(e) {
 
 const getResultByURL = function(e) {
   console.log("getting results");
-  imageURL = document.getElementById("materialUrl").value;
+  imageURL = document.getElementById("materialUrlSkin").value;
   var request = require("request");
   const bodyF = `{\n"url": "${imageURL}"\n}`;
 
@@ -85,8 +84,7 @@ const getResultByURL = function(e) {
     console.log(body);
     result = body.slice(14, body.length - 2);
     console.log(result);
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("heatimage").src = heatmap;
+    document.getElementById("resultSkin").innerHTML = result;
   });
 };
 
@@ -112,9 +110,8 @@ const getResult = function(e) {
     console.log(body);
     result = body.slice(14, body.length - 2);
     console.log(result);
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("heatimage").style.display = "flex";
-    document.getElementById("heatimage").src = heatmap;
+    document.getElementById("resultSkin").innerHTML = result;
+    document.getElementById("heatimageSkin").style.display = "flex";
   });
 };
 
@@ -128,12 +125,9 @@ export default function SectionTabs() {
   const classes = useStyles();
   let img = null;
   return (
-    <div
-      className={classes.section}
-      style={{ paddingBottom: 0, marginBottom: 0 }}
-    >
+    <div className={classes.section} style={{ padding: 0, margin: 0 }}>
       <div style={heading}>
-        <h2> Eye Blindness Test </h2>
+        <h2> Skin Cancer Test </h2>
       </div>
       <div className={classes.container}>
         <div id="nav-tabs">
@@ -153,12 +147,12 @@ export default function SectionTabs() {
                             alt="upload file image"
                             onChange={store}
                           />
-                          <div id="uploading" style={{ display: "none" }}>
+                          <div id="uploadingSkin" style={{ display: "none" }}>
                             {" "}
                             <CircularProgress />{" "}
                           </div>
                           <Button
-                            id="resultButton"
+                            id="resultButtonSkin"
                             color="primary"
                             onClick={getResult}
                             style={{ display: "none" }}
@@ -168,11 +162,11 @@ export default function SectionTabs() {
                         </p>
                         <div
                           style={{ display: "none", justifyContent: "center" }}
-                          id="uploadedImageDivision"
+                          id="uploadedImageDivisionSkin"
                         >
                           <img
                             src="#"
-                            id="uploadedImage"
+                            id="uploadedImageSkin"
                             height="300px"
                             width="300px"
                           />
@@ -187,7 +181,7 @@ export default function SectionTabs() {
                       <p className={classes.textCenter}>
                         <CustomInput
                           labelText="Upload url here"
-                          id="materialUrl"
+                          id="materialUrlSkin"
                           type="text"
                           onChange={storeUrl}
                           formControlProps={{
@@ -232,26 +226,11 @@ export default function SectionTabs() {
                                 display: "flex",
                                 justifyContent: "center"
                               }}
-                              id="result"
+                              id="resultSkin"
                             >
                               {" "}
                             </div>
                           </h2>
-                        </p>
-                      </span>
-                    )
-                  },
-                  {
-                    tabButton: "Heat-Map",
-                    tabIcon: BrokenImageIcon,
-                    tabContent: (
-                      <span>
-                        <p>
-                          <img
-                            src="#"
-                            id="heatimage"
-                            style={{ display: "none" }}
-                          />
                         </p>
                       </span>
                     )
@@ -270,7 +249,13 @@ export default function SectionTabs() {
                     tabIcon: DescriptionIcon,
                     tabContent: (
                       <span>
-                        <p> </p>
+                        <p>
+                          <img
+                            src="#"
+                            id="heatimageSkin"
+                            style={{ display: "none" }}
+                          />
+                        </p>
                       </span>
                     )
                   }

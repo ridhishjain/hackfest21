@@ -39,16 +39,13 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <Link to="/" className={classes.dropdownLink}>
-              Item 1
+              Eye Blindness
             </Link>,
             <Link to="/" className={classes.dropdownLink}>
-              Item 2
+              Brain Tumour
             </Link>,
             <Link to="/" className={classes.dropdownLink}>
-              Item 3
-            </Link>,
-            <Link to="/" className={classes.dropdownLink}>
-              Item 4
+              Skin Cancer
             </Link>,
           ]}
         />

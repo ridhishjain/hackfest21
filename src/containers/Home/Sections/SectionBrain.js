@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+// @material-ui/icons
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
@@ -34,29 +35,30 @@ const storeUrl = async function(e) {
 
 const store = async function(e) {
   image = e.target.files[0];
-  const uploadTask = storage.ref(`aptos/${image.name}`).put(image);
+  const uploadTask = storage.ref(`brainy/${image.name}`).put(image);
   uploadTask.on(
     "state_changed",
-    snapshot => {
+    () => {
       console.log("uploading...");
-      document.getElementById("uploading").style.display = "inline";
+      document.getElementById("uploadingBrainy").style.display = "inline";
     },
     error => {
       console.log(error);
     },
     async () => {
       await storage
-        .ref("aptos")
+        .ref("brainy")
         .child(image.name)
         .getDownloadURL()
         .then(url => {
           imageURL = url;
           console.log(imageURL);
-          document.getElementById("uploading").style.display = "none";
-          document.getElementById("resultButton").style.display = "inline";
-          document.getElementById("uploadedImageDivision").style.display =
+          document.getElementById("uploadingBrainy").style.display = "none";
+          document.getElementById("resultButtonBrainy").style.display =
+            "inline";
+          document.getElementById("uploadedImageDivisionBrainy").style.display =
             "flex";
-          document.getElementById("uploadedImage").src = imageURL;
+          document.getElementById("uploadedImageBrainy").src = imageURL;
         });
     }
   );
@@ -64,7 +66,7 @@ const store = async function(e) {
 
 const getResultByURL = function(e) {
   console.log("getting results");
-  imageURL = document.getElementById("materialUrl").value;
+  imageURL = document.getElementById("materialUrlBrainy").value;
   var request = require("request");
   const bodyF = `{\n"url": "${imageURL}"\n}`;
 
@@ -85,8 +87,7 @@ const getResultByURL = function(e) {
     console.log(body);
     result = body.slice(14, body.length - 2);
     console.log(result);
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("heatimage").src = heatmap;
+    document.getElementById("heatimageBrainy").src = heatmap;
   });
 };
 
@@ -97,7 +98,7 @@ const getResult = function(e) {
 
   var options = {
     method: "POST",
-    url: "http://10.42.0.1:5000/aptos/",
+    url: "http://10.42.0.1:5000/brainy/",
     headers: {
       Host: "10.42.0.1:5000",
       Accept: "application/json",
@@ -112,9 +113,9 @@ const getResult = function(e) {
     console.log(body);
     result = body.slice(14, body.length - 2);
     console.log(result);
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("heatimage").style.display = "flex";
-    document.getElementById("heatimage").src = heatmap;
+    document.getElementById("resultBrainy").innerHTML = result;
+    document.getElementById("heatimageBrainy").style.display = "flex";
+    document.getElementById("heatimageBrainy").src = heatmap;
   });
 };
 
@@ -128,12 +129,9 @@ export default function SectionTabs() {
   const classes = useStyles();
   let img = null;
   return (
-    <div
-      className={classes.section}
-      style={{ paddingBottom: 0, marginBottom: 0 }}
-    >
+    <div className={classes.section} style={{ padding: 0, margin: 0 }}>
       <div style={heading}>
-        <h2> Eye Blindness Test </h2>
+        <h2> Brain Tumour Test </h2>
       </div>
       <div className={classes.container}>
         <div id="nav-tabs">
@@ -153,12 +151,12 @@ export default function SectionTabs() {
                             alt="upload file image"
                             onChange={store}
                           />
-                          <div id="uploading" style={{ display: "none" }}>
+                          <div id="uploadingBrainy" style={{ display: "none" }}>
                             {" "}
                             <CircularProgress />{" "}
                           </div>
                           <Button
-                            id="resultButton"
+                            id="resultButtonBrainy"
                             color="primary"
                             onClick={getResult}
                             style={{ display: "none" }}
@@ -168,11 +166,11 @@ export default function SectionTabs() {
                         </p>
                         <div
                           style={{ display: "none", justifyContent: "center" }}
-                          id="uploadedImageDivision"
+                          id="uploadedImageDivisionBrainy"
                         >
                           <img
                             src="#"
-                            id="uploadedImage"
+                            id="uploadedImageBrainy"
                             height="300px"
                             width="300px"
                           />
@@ -187,7 +185,7 @@ export default function SectionTabs() {
                       <p className={classes.textCenter}>
                         <CustomInput
                           labelText="Upload url here"
-                          id="materialUrl"
+                          id="materialUrlBrainy"
                           type="text"
                           onChange={storeUrl}
                           formControlProps={{
@@ -232,7 +230,7 @@ export default function SectionTabs() {
                                 display: "flex",
                                 justifyContent: "center"
                               }}
-                              id="result"
+                              id="resultBrainy"
                             >
                               {" "}
                             </div>
@@ -249,7 +247,8 @@ export default function SectionTabs() {
                         <p>
                           <img
                             src="#"
-                            id="heatimage"
+                            id="heatimageBrainy"
+                            Brainy
                             style={{ display: "none" }}
                           />
                         </p>
@@ -270,7 +269,7 @@ export default function SectionTabs() {
                     tabIcon: DescriptionIcon,
                     tabContent: (
                       <span>
-                        <p> </p>
+                        <p></p>
                       </span>
                     )
                   }
