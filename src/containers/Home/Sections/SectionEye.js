@@ -127,14 +127,16 @@ const getResult = function(e) {
     } else if (final <= 100 && final > 80) {
       bold = document.getElementById("e");
     } else {
-      alert('no output');
+      alert("no output");
       return;
     }
     bold.style.fontWeight = 800;
-    bold.style.color = 'dodgerblue';
+    bold.style.color = "dodgerblue";
     document.getElementById("resulttext").style.display = "flex";
     document.getElementById("uploading2").style.display = "none";
-    document.getElementById("result").innerHTML = `The disease is ${result}% severe`;
+    document.getElementById(
+      "result"
+    ).innerHTML = `The disease is ${result}% severe`;
     document.getElementById("heatimage").style.display = "flex";
     document.getElementById("heatimage").src = heatmap;
     document.getElementById("description").style.display = "flex";
@@ -178,8 +180,13 @@ export default function SectionTabs() {
                           />
                           <div id="uploading" style={{ display: "none" }}>
                             {" "}
-                            <div style={{display: 'flex', justifyContent: 'center'}} >
-                            <CircularProgress />{" "}
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center"
+                              }}
+                            >
+                              <CircularProgress />{" "}
                             </div>
                           </div>
                           <Button
@@ -236,15 +243,7 @@ export default function SectionTabs() {
               />
             </GridItem>
 
-
-
-            <GridItem
-              xs={12}
-              sm={12}
-              md={8}
-              lg={6}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
+            <GridItem xs={12} sm={12} md={8} lg={6}>
               <NavPills
                 color="primary"
                 tabs={[
@@ -253,20 +252,43 @@ export default function SectionTabs() {
                     tabIcon: LinkIcon,
                     tabContent: (
                       <span>
-                      <div id="uploading2" style={{ display: "none" }}>
-                            {" "}
-                             <div style={{display: 'flex', justifyContent: 'center'}} >
+                        <div id="uploading2" style={{ display: "none" }}>
+                          {" "}
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center"
+                            }}
+                          >
                             <CircularProgress />{" "}
-                            </div>
-                      </div>
-                            <br />
-                            <div id="resulttext" style={{ display: "none", justifyContent: 'center' }}> 
-                            <div id="a" style={{marginRight: 10, fontSize: 25}}> Safe </div> 
-                            <div id="b" style={{marginRight: 10, fontSize: 25}}> Mild </div> 
-                            <div id="c" style={{marginRight: 10, fontSize: 25}}> Moderate </div> 
-                            <div id="d" style={{marginRight: 10, fontSize: 25}}> Severe </div> 
-                            <div id="e" style={{marginRight: 10, fontSize: 25}}> Poliferative </div>
-                            </div>
+                          </div>
+                        </div>
+                        <br />
+                        <div
+                          id="resulttext"
+                          style={{ display: "none", justifyContent: "center" }}
+                        >
+                          <div id="a" style={{ marginRight: 10, fontSize: 25 }}>
+                            {" "}
+                            Safe{" "}
+                          </div>
+                          <div id="b" style={{ marginRight: 10, fontSize: 25 }}>
+                            {" "}
+                            Mild{" "}
+                          </div>
+                          <div id="c" style={{ marginRight: 10, fontSize: 25 }}>
+                            {" "}
+                            Moderate{" "}
+                          </div>
+                          <div id="d" style={{ marginRight: 10, fontSize: 25 }}>
+                            {" "}
+                            Severe{" "}
+                          </div>
+                          <div id="e" style={{ marginRight: 10, fontSize: 25 }}>
+                            {" "}
+                            Poliferative{" "}
+                          </div>
+                        </div>
                         <p>
                           <h2>
                             <div
@@ -302,15 +324,46 @@ export default function SectionTabs() {
                     tabButton: "Description",
                     tabIcon: DescriptionIcon,
                     tabContent: (
-                      <div id="description" style={{display: "none"}}>
-                        <p> 
+                      <div id="description" style={{ display: "none" }}>
+                        <p>
                           APTOS <br />
-                          Dataset - <a target="_blank" href="http://academictorrents.com/details/d8653db45e7f111dc2c1b595bdac7ccf695efcfd"> 2019 diabetic retinopathy dataset </a> <br />
-                          Base Model Architecture  - <a target="_blank" href="https://arxiv.org/abs/1905.11946"> EfficientNet-b0 </a> <br /> 
-                          Optimizer - <a target="_blank" href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"> Ranger </a> <br />
+                          Dataset -{" "}
+                          <a
+                            target="_blank"
+                            href="http://academictorrents.com/details/d8653db45e7f111dc2c1b595bdac7ccf695efcfd"
+                          >
+                            {" "}
+                            2019 diabetic retinopathy dataset{" "}
+                          </a>{" "}
+                          <br />
+                          Base Model Architecture -{" "}
+                          <a
+                            target="_blank"
+                            href="https://arxiv.org/abs/1905.11946"
+                          >
+                            {" "}
+                            EfficientNet-b0{" "}
+                          </a>{" "}
+                          <br />
+                          Optimizer -{" "}
+                          <a
+                            target="_blank"
+                            href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"
+                          >
+                            {" "}
+                            Ranger{" "}
+                          </a>{" "}
+                          <br />
                           PERFORMANCE <br />
                           Accuracy - 74.18 ( 5-ary classification ) <br />
-                          <a target="_blank" href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"> Kappa ( qwk )  </a> - 90.42
+                          <a
+                            target="_blank"
+                            href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"
+                          >
+                            {" "}
+                            Kappa ( qwk ){" "}
+                          </a>{" "}
+                          - 90.42
                         </p>
                       </div>
                     )

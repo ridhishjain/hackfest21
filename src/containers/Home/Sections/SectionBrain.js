@@ -93,6 +93,8 @@ const getResultByURL = function(e) {
 
 const getResult = function(e) {
   console.log("getting results");
+  document.getElementById("uploading2b").style.display = "flex";
+  document.getElementById("resulttextb").style.display = "flex";
   var request = require("request");
   const bodyF = `{\n"url": "${imageURL}"\n}`;
 
@@ -112,10 +114,32 @@ const getResult = function(e) {
 
     console.log(body);
     result = body.slice(14, body.length - 2);
-    console.log(result);
+    const final = Number(result);
+    console.log(final);
+    let bold = null;
+    if (final <= 20 && final >= 0) {
+      bold = document.getElementById("ab");
+    } else if (final <= 40 && final > 20) {
+      bold = document.getElementById("bb");
+    } else if (final <= 60 && final > 40) {
+      bold = document.getElementById("cb");
+    } else if (final <= 80 && final > 60) {
+      bold = document.getElementById("db");
+    } else if (final <= 100 && final > 80) {
+      bold = document.getElementById("eb");
+    } else {
+      alert("no output");
+      return;
+    }
+
+    bold.style.fontWeight = 800;
+    bold.style.color = "dodgerblue";
+    document.getElementById("resulttextb").style.display = "flex";
+    document.getElementById("uploading2b").style.display = "none";
     document.getElementById("resultBrainy").innerHTML = result;
     document.getElementById("heatimageBrainy").style.display = "flex";
     document.getElementById("heatimageBrainy").src = heatmap;
+    document.getElementById("descriptionb").style.display = "flex";
   });
 };
 
@@ -153,7 +177,14 @@ export default function SectionTabs() {
                           />
                           <div id="uploadingBrainy" style={{ display: "none" }}>
                             {" "}
-                            <CircularProgress />{" "}
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center"
+                              }}
+                            >
+                              <CircularProgress />{" "}
+                            </div>
                           </div>
                           <Button
                             id="resultButtonBrainy"
@@ -208,13 +239,8 @@ export default function SectionTabs() {
                 ]}
               />
             </GridItem>
-            <GridItem
-              xs={12}
-              sm={12}
-              md={8}
-              lg={6}
-              style={{ display: "flex", justifyContent: "center" }}
-            >
+
+            <GridItem xs={12} sm={12} md={8} lg={6}>
               <NavPills
                 color="primary"
                 tabs={[
@@ -223,6 +249,58 @@ export default function SectionTabs() {
                     tabIcon: LinkIcon,
                     tabContent: (
                       <span>
+                        <div id="uploading2b" style={{ display: "none" }}>
+                          {" "}
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center"
+                            }}
+                          >
+                            <CircularProgress />{" "}
+                          </div>
+                        </div>
+                        <br />
+                        <div
+                          id="resulttextb"
+                          style={{ display: "none", justifyContent: "center" }}
+                        >
+                          <div
+                            id="ab"
+                            style={{ marginRight: 10, fontSize: 25 }}
+                          >
+                            {" "}
+                            Safe{" "}
+                          </div>
+                          <div
+                            id="bb"
+                            style={{ marginRight: 10, fontSize: 25 }}
+                          >
+                            {" "}
+                            Mild{" "}
+                          </div>
+                          <div
+                            id="cb"
+                            style={{ marginRight: 10, fontSize: 25 }}
+                          >
+                            {" "}
+                            Moderate{" "}
+                          </div>
+                          <div
+                            id="db"
+                            style={{ marginRight: 10, fontSize: 25 }}
+                          >
+                            {" "}
+                            Severe{" "}
+                          </div>
+                          <div
+                            id="eb"
+                            style={{ marginRight: 10, fontSize: 25 }}
+                          >
+                            {" "}
+                            Poliferative{" "}
+                          </div>
+                        </div>
                         <p>
                           <h2>
                             <div
@@ -259,9 +337,9 @@ export default function SectionTabs() {
                     tabButton: "Description",
                     tabIcon: DescriptionIcon,
                     tabContent: (
-                      <span>
+                      <div id="descriptionb" style={{ display: "none" }}>
                         <p></p>
-                      </span>
+                      </div>
                     )
                   }
                 ]}

@@ -24,7 +24,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import { database } from "../Home/firebase.js";
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/feedback.jpg";
 import RateReviewSharpIcon from '@material-ui/icons/RateReviewSharp';
 import AssignmentSharpIcon from '@material-ui/icons/AssignmentSharp';
 
