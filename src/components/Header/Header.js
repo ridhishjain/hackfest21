@@ -18,6 +18,13 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 
+const redirect = function() {
+  if (window.location.pathname === "/") {
+    return;
+  }
+  window.location = "/";
+};
+
 export default function Header(props) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -61,7 +68,11 @@ export default function Header(props) {
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent = <Button className={classes.title}>{'MEDIDOC'}</Button>;
+  const brandComponent = (
+    <Button className={classes.title} onClick={redirect}>
+      {"MEDIDOC"}
+    </Button>
+  );
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>

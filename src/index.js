@@ -10,6 +10,7 @@ import Home from "./containers/Home/index.js";
 import About from "./containers/About/index.js";
 import Auth from "./containers/Auth/index.js";
 import ProfilePage from "containers/ProfilePage/ProfilePage.js";
+import Developers from "./containers/Developers/index.js";
 
 var history = createBrowserHistory();
 
@@ -17,6 +18,7 @@ ReactDOM.render(
   <Router history={history}>
     <Switch>
       <Route path="/about" component={About} />
+      <Route path="/developers"  component={Developers} />
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/auth" component={Auth} />
       <Route path="/" component={Home} />

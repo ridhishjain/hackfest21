@@ -1,10 +1,6 @@
 import React from "react";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-
-// core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -14,6 +10,28 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/work
 
 const useStyles = makeStyles(styles);
 
+const mailDevelopers = function() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const number = document.getElementById("number").value;
+  const resume = document.getElementById("resume").value;
+  const message = document.getElementById("message").value;
+
+  const accountSID = "AC1891a40d42c8cccd0ecb2fa75a0b6f24";
+  const authToken = "55f02c79340b2da542135c976cf93f5f";
+  const mailRidhish = "ultimate.ridhish@gmail.com";
+  const contactRidhish = "9352060123";
+
+  var twilio = require("twilio");
+  var client = new twilio(accountSID, authToken);
+
+  /*client.messages.create({
+    to: contactRidhish,
+    from: number,
+    body: `${name} ... ${email} ... ${message} ... ${resume}`
+  });*/
+};
+
 export default function WorkSection() {
   const classes = useStyles();
   return (
@@ -22,10 +40,9 @@ export default function WorkSection() {
         <GridItem cs={12} sm={12} md={8}>
           <h2 className={classes.title}>Work with us</h2>
           <h4 className={classes.description}>
-            Divide details about your product or agency work into parts. Write a
-            few lines about each one and contact us about any further
-            collaboration. We will responde get back to you in a couple of
-            hours.
+            Want to join our team? Here's what to do. Just mail us your name,
+            email id and why do you want to work with us with a resume of
+            yourself.
           </h4>
           <form>
             <GridContainer>
@@ -47,8 +64,26 @@ export default function WorkSection() {
                   }}
                 />
               </GridItem>
+              <GridItem xs={12} sm={12} md={6}>
+                <CustomInput
+                  labelText="Your Contact Number"
+                  id="number"
+                  formControlProps={{
+                    fullWidth: true
+                  }}
+                />
+              </GridItem>
+              <GridItem xs={12} sm={12} md={6}>
+                <CustomInput
+                  labelText="Your Resume"
+                  id="resume"
+                  formControlProps={{
+                    fullWidth: true
+                  }}
+                />
+              </GridItem>
               <CustomInput
-                labelText="Your Message"
+                labelText="Why do you want to work with us?"
                 id="message"
                 formControlProps={{
                   fullWidth: true,
@@ -61,7 +96,9 @@ export default function WorkSection() {
               />
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
-                  <Button color="primary">Send Message</Button>
+                  <Button color="primary" onClick={mailDevelopers}>
+                    Send Message
+                  </Button>
                 </GridItem>
               </GridContainer>
             </GridContainer>
