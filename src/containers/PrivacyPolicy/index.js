@@ -1,12 +1,8 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
+
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-
-// core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -44,10 +40,11 @@ export default function PrivacyPolicy(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>Privacy Policy</h1>
               <h4>
-                This page informs you of our policies regarding the collection, use, 
-              and disclosure of personal data when you use our Service and the choices you have associated with that data. 
-              Our Privacy Policy  for Medidoc is created with the help of the       
-              Free Privacy Policy Generator
+                This page informs you of our policies regarding the collection,
+                use, and disclosure of personal data when you use our Service
+                and the choices you have associated with that data. Our Privacy
+                Policy for Medidoc is created with the help of the Free Privacy
+                Policy Generator
               </h4>
               <br />
             </GridItem>

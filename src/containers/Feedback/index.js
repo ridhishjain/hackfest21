@@ -1,14 +1,14 @@
 import React from "react";
-// @material-ui/core components
+
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-import FeedbackSharpIcon from '@material-ui/icons/FeedbackSharp';
-import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
-// @material-ui/icons
+import FeedbackSharpIcon from "@material-ui/icons/FeedbackSharp";
+import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
-// core components
+import RateReviewSharpIcon from "@material-ui/icons/RateReviewSharp";
+import AssignmentSharpIcon from "@material-ui/icons/AssignmentSharp";
+
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
@@ -25,33 +25,34 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import { database } from "../Home/firebase.js";
 
 import image from "assets/img/feedback.jpg";
-import RateReviewSharpIcon from '@material-ui/icons/RateReviewSharp';
-import AssignmentSharpIcon from '@material-ui/icons/AssignmentSharp';
 
 const useStyles = makeStyles(styles);
 
 const send = function() {
-  const name = document.getElementById('name').value;
-  const number = document.getElementById('number').value;
-  const email = document.getElementById('email').value;
-  const review = document.getElementById('review').value;
-  const suggestion = document.getElementById('suggestion').value;
+  const name = document.getElementById("name").value;
+  const number = document.getElementById("number").value;
+  const email = document.getElementById("email").value;
+  const review = document.getElementById("review").value;
+  const suggestion = document.getElementById("suggestion").value;
 
-  database.ref('feedback/').push().set({
-    name: name,
-    number: number,
-    email: email,
-    review: review,
-    suggestion: suggestion,
-  });
+  database
+    .ref("feedback/")
+    .push()
+    .set({
+      name: name,
+      number: number,
+      email: email,
+      review: review,
+      suggestion: suggestion
+    });
 
-  alert('feedback sent');
-  document.getElementById('name').value = "";
-  document.getElementById('number').value = "";
-  document.getElementById('email').value = "";
-  document.getElementById('review').value = "";
-  document.getElementById('suggestion').value = "";
-}
+  alert("feedback sent");
+  document.getElementById("name").value = "";
+  document.getElementById("number").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("review").value = "";
+  document.getElementById("suggestion").value = "";
+};
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
@@ -77,52 +78,54 @@ export default function LoginPage(props) {
           backgroundPosition: "top center"
         }}
       >
-        <div className={classes.container} style={{paddingBottom: 100}}>
+        <div className={classes.container} style={{ paddingBottom: 100 }}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={6}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                  <FeedbackSharpIcon />
+                    <FeedbackSharpIcon />
                     <h3>Customer Feedback</h3>
                   </CardHeader>
                   <p className={classes.divider}>Share your review</p>
                   <CardBody>
-                  <GridContainer>
-                  <GridItem xs={12} sm={12} md={6}>
-                    <CustomInput
-                      labelText="Name..."
-                      id="name"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={6}>
-                    <CustomInput
-                      labelText="Number..."
-                      id="number"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "number",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <PhoneAndroidIcon className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    </GridItem>
+                    <GridContainer>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <CustomInput
+                          labelText="Name..."
+                          id="name"
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                          inputProps={{
+                            type: "text",
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <People className={classes.inputIconsColor} />
+                              </InputAdornment>
+                            )
+                          }}
+                        />
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={6}>
+                        <CustomInput
+                          labelText="Number..."
+                          id="number"
+                          formControlProps={{
+                            fullWidth: true
+                          }}
+                          inputProps={{
+                            type: "number",
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <PhoneAndroidIcon
+                                  className={classes.inputIconsColor}
+                                />
+                              </InputAdornment>
+                            )
+                          }}
+                        />
+                      </GridItem>
                     </GridContainer>
                     <CustomInput
                       labelText="Email..."
@@ -149,7 +152,9 @@ export default function LoginPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <RateReviewSharpIcon className={classes.inputIconsColor} />
+                            <RateReviewSharpIcon
+                              className={classes.inputIconsColor}
+                            />
                           </InputAdornment>
                         )
                       }}
@@ -164,7 +169,9 @@ export default function LoginPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <AssignmentSharpIcon className={classes.inputIconsColor} />
+                            <AssignmentSharpIcon
+                              className={classes.inputIconsColor}
+                            />
                           </InputAdornment>
                         )
                       }}
@@ -180,7 +187,7 @@ export default function LoginPage(props) {
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont style={{marginTop: 0, paddingTop: 0}}/>
+        <Footer whiteFont style={{ marginTop: 0, paddingTop: 0 }} />
       </div>
     </div>
   );

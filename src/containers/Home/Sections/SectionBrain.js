@@ -137,8 +137,6 @@ const getResult = function(e) {
     document.getElementById("resulttextb").style.display = "flex";
     document.getElementById("uploading2b").style.display = "none";
     document.getElementById("resultBrainy").innerHTML = result;
-    document.getElementById("heatimageBrainy").style.display = "flex";
-    document.getElementById("heatimageBrainy").src = heatmap;
     document.getElementById("descriptionb").style.display = "flex";
   });
 };
@@ -318,27 +316,45 @@ export default function SectionTabs() {
                     )
                   },
                   {
-                    tabButton: "Heat-Map",
-                    tabIcon: BrokenImageIcon,
-                    tabContent: (
-                      <span>
-                        <p>
-                          <img
-                            src="#"
-                            id="heatimageBrainy"
-                            Brainy
-                            style={{ display: "none" }}
-                          />
-                        </p>
-                      </span>
-                    )
-                  },
-                  {
                     tabButton: "Description",
                     tabIcon: DescriptionIcon,
                     tabContent: (
                       <div id="descriptionb" style={{ display: "none" }}>
-                        <p></p>
+                        <p>
+                          BRAIN tUMOUR <br />
+                          Dataset -{" "}
+                          <a
+                            target="_blank"
+                            href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection"
+                          >
+                            {" "}
+                            Brain MRI Images for Brain Tumour Detection{" "}
+                          </a>{" "}
+                          <br />
+                          Base Model Architecture -{" "}
+                          <a
+                            target="_blank"
+                            href="https://arxiv.org/abs/1905.11946"
+                          >
+                            {" "}
+                            EfficientNet-b0{" "}
+                          </a>{" "}
+                          <br />
+                          Optimizer -{" "}
+                          <a
+                            target="_blank"
+                            href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"
+                          >
+                            {" "}
+                            Ranger{" "}
+                          </a>{" "}
+                          <br />
+                          PERFORMANCE <br />
+                          Accuracy - 87.15% <br />
+                          Recall - 0.71 <br />
+                          F1 Score - 0.75 <br />
+                          Kappa ( qwk ) - 90.42 <br />
+                        </p>
                       </div>
                     )
                   }

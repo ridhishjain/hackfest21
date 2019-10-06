@@ -1,22 +1,19 @@
 import React from "react";
-// import { Component } from "react";
 import classNames from "classnames";
-// import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
+
 import Header from "../../components/Header/Header.js";
 import Footer from "../../components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-// import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-
 import styles from "assets/jss/material-kit-react/views/components.js";
+
 import SectionEye from "./Sections/SectionEye.js";
 import SectionBrain from "./Sections/SectionBrain.js";
 import SectionSkin from "./Sections/SectionSkin.js";
-// import SectionTabs from "./Sections/SectionTabs.js";
-// import SectionPills from "./Sections/SectionPills.js";
 
 const useStyles = makeStyles(styles);
 

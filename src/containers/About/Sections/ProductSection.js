@@ -1,16 +1,11 @@
 import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import { makeStyles } from "@material-ui/core/styles";
 import Dashboard from "@material-ui/icons/Dashboard";
-import VisibilityTwoToneIcon from '@material-ui/icons/VisibilityTwoTone';
-import BlurCircularTwoToneIcon from '@material-ui/icons/BlurCircularTwoTone';
-import PanToolTwoToneIcon from '@material-ui/icons/PanToolTwoTone';
-// core components
+import VisibilityTwoToneIcon from "@material-ui/icons/VisibilityTwoTone";
+import BlurCircularTwoToneIcon from "@material-ui/icons/BlurCircularTwoTone";
+import PanToolTwoToneIcon from "@material-ui/icons/PanToolTwoTone";
+
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
