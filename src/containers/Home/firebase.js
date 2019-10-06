@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from '@firebase/app';
 import '@firebase/storage';
+import '@firebase/database';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDmQUGFcPRJd7HVxawIZKICyTDqzfiG8y8",
@@ -12,10 +13,12 @@ const firebaseConfig = {
     appId: "1:237648817851:web:99ffcb2e2214c40c1b439e",
     measurementId: "G-CF800N6EE0"
   };
+
 firebase.initializeApp(firebaseConfig);
 
 const storage = firebase.storage();
+const database = firebase.database();
 
 export {
-  storage, firebase as default
+  database, storage, firebase as default
 }

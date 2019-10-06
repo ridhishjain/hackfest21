@@ -7,7 +7,9 @@ import Chat from "@material-ui/icons/Chat";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
+import VisibilityTwoToneIcon from '@material-ui/icons/VisibilityTwoTone';
+import BlurCircularTwoToneIcon from '@material-ui/icons/BlurCircularTwoTone';
+import PanToolTwoToneIcon from '@material-ui/icons/PanToolTwoTone';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -69,7 +71,7 @@ export default function ProductSection() {
                       <InfoArea
                         title="Diabetic Retinopathy"
                         description={description_dr}
-                        icon={Chat}
+                        icon={VisibilityTwoToneIcon}
                         iconColor="info"
                         vertical
                       />
@@ -82,7 +84,7 @@ export default function ProductSection() {
                       <InfoArea
                         title="Brain Tumour"
                         description={description_bt}
-                        icon={VerifiedUser}
+                        icon={BlurCircularTwoToneIcon}
                         iconColor="success"
                         vertical
                       />
@@ -90,12 +92,12 @@ export default function ProductSection() {
                   },
                   {
                     tabButton: "Skin Cancer",
-                    tabIcon: Schedule,
+                    tabIcon: Dashboard,
                     tabContent: (
                       <InfoArea
                         title="Skin Cancer"
                         description={description_sk}
-                        icon={Fingerprint}
+                        icon={PanToolTwoToneIcon}
                         iconColor="danger"
                         vertical
                       />

@@ -15,7 +15,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
-import Statement from "./Sections/SectionTypography.js";
+import Statement from "./Sections/SectionPrivacyPolicy.js";
 
 const dashboardRoutes = [];
 
@@ -38,17 +38,16 @@ export default function PrivacyPolicy(props) {
         }}
         {...rest}
       />
-      <Parallax filter image={require("assets/img/developers.jpeg")}>
+      <Parallax filter image={require("assets/img/policy.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Our Developers Team</h1>
+              <h1 className={classes.title}>Privacy Policy</h1>
               <h4>
-                We aim to design and train deep learning models to predict the
-                severity of disease in seconds. Our product is customizable and
-                provides the benefits of AI to the general public. Our service
-                is deployed as a simple and easy to use user-interface on Web
-                and Android.
+                This page informs you of our policies regarding the collection, use, 
+              and disclosure of personal data when you use our Service and the choices you have associated with that data. 
+              Our Privacy Policy  for Medidoc is created with the help of the       
+              Free Privacy Policy Generator
               </h4>
               <br />
             </GridItem>

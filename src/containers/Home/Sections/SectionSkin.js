@@ -236,15 +236,6 @@ export default function SectionTabs() {
                     )
                   },
                   {
-                    tabButton: "Reports",
-                    tabIcon: AssignmentIcon,
-                    tabContent: (
-                      <span>
-                        <p></p>
-                      </span>
-                    )
-                  },
-                  {
                     tabButton: "Description",
                     tabIcon: DescriptionIcon,
                     tabContent: (

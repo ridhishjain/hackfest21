@@ -58,15 +58,6 @@ export default function Footer(props) {
                 Privacy Policy
               </a>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="/contact-us"
-                className={classes.block}
-                target="_blank"
-              >
-                Contact Us
-              </a>
-            </ListItem>
           </List>
         </div>
         <div className={classes.right}>
