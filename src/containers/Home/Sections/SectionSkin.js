@@ -114,25 +114,29 @@ const getResult = function(e) {
     result = body.slice(14, body.length - 2);
     const final = Number(result);
     console.log(final);
-    let bold = null;
-    if (final <= 20 && final >= 0) {
-      bold = document.getElementById("as");
-    } else if (final <= 40 && final > 20) {
-      bold = document.getElementById("bs");
-    } else if (final <= 60 && final > 40) {
-      bold = document.getElementById("cs");
-    } else if (final <= 80 && final > 60) {
-      bold = document.getElementById("ds");
-    } else if (final <= 100 && final > 80) {
-      bold = document.getElementById("es");
+    let bold = document.getElementById("resulttexts");
+    if (final === 0) {
+      bold.innerHTML = "Acitinic Keratosis";
+    } else if (final === 1) {
+      bold.innerHTML = "Basal Cell Carcinoma";
+    } else if (final === 2) {
+      bold.innerHTML = "Benign Keratosis";
+    } else if (final === 3) {
+      bold.innerHTML = "Dermatofibroma";
+    } else if (final === 4) {
+      bold.innerHTML = "Melanome";
+    } else if (final === 5) {
+      bold.innerHTML = "Melanocytic nevi";
+    } else if (final === 6) {
+      bold.innerHTML = "Vascular Keratosis";
     } else {
-      alert("no output");
+      alert("Invalid image");
       return;
     }
 
     bold.style.fontWeight = 800;
     bold.style.color = "dodgerblue";
-    document.getElementById("resulttexts").style.display = "flex";
+    bold.style.display = "flex";
     document.getElementById("uploading2s").style.display = "none";
     document.getElementById("resultSkinny").innerHTML = result;
     document.getElementById("descriptions").style.display = "flex";
@@ -260,43 +264,7 @@ export default function SectionTabs() {
                         <div
                           id="resulttexts"
                           style={{ display: "none", justifyContent: "center" }}
-                        >
-                          <div
-                            id="as"
-                            style={{ marginRight: 10, fontSize: 25 }}
-                          >
-                            {" "}
-                            Safe{" "}
-                          </div>
-                          <div
-                            id="bs"
-                            style={{ marginRight: 10, fontSize: 25 }}
-                          >
-                            {" "}
-                            Mild{" "}
-                          </div>
-                          <div
-                            id="cs"
-                            style={{ marginRight: 10, fontSize: 25 }}
-                          >
-                            {" "}
-                            Moderate{" "}
-                          </div>
-                          <div
-                            id="ds"
-                            style={{ marginRight: 10, fontSize: 25 }}
-                          >
-                            {" "}
-                            Severe{" "}
-                          </div>
-                          <div
-                            id="es"
-                            style={{ marginRight: 10, fontSize: 25 }}
-                          >
-                            {" "}
-                            Poliferative{" "}
-                          </div>
-                        </div>
+                        ></div>
                         <p>
                           <h2>
                             <div
