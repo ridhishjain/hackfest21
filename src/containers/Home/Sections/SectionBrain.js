@@ -136,7 +136,9 @@ const getResult = function(e) {
     bold.style.color = "dodgerblue";
     document.getElementById("resulttextb").style.display = "flex";
     document.getElementById("uploading2b").style.display = "none";
-    document.getElementById("resultBrainy").innerHTML = result;
+    document.getElementById(
+      "resultBrainy"
+    ).innerHTML = `Chances for Brain Tumour are ${result}%`;
     document.getElementById("descriptionb").style.display = "flex";
   });
 };

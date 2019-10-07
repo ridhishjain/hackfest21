@@ -355,7 +355,7 @@ export default function SectionTabs() {
                           </a>{" "}
                           <br />
                           PERFORMANCE <br />
-                          Accuracy - 74.18 ( 5-ary classification ) <br />
+                          Accuracy - 79.07% ( 5-ary classification ) <br />
                           <a
                             target="_blank"
                             href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"
@@ -363,7 +363,7 @@ export default function SectionTabs() {
                             {" "}
                             Kappa ( qwk ){" "}
                           </a>{" "}
-                          - 90.42
+                          - 0.902
                         </p>
                       </div>
                     )

@@ -116,19 +116,19 @@ const getResult = function(e) {
     console.log(final);
     let bold = document.getElementById("resulttexts");
     if (final === 0) {
-      bold.innerHTML = "Acitinic Keratosis";
+      bold.innerHTML = `Acitinic Keratosis`;
     } else if (final === 1) {
-      bold.innerHTML = "Basal Cell Carcinoma";
+      bold.innerHTML = `Basal Cell Carcinoma`;
     } else if (final === 2) {
-      bold.innerHTML = "Benign Keratosis";
+      bold.innerHTML = `Benign Keratosis`;
     } else if (final === 3) {
-      bold.innerHTML = "Dermatofibroma";
+      bold.innerHTML = `Dermatofibroma`;
     } else if (final === 4) {
-      bold.innerHTML = "Melanome";
+      bold.innerHTML = `Melanome`;
     } else if (final === 5) {
-      bold.innerHTML = "Melanocytic nevi";
+      bold.innerHTML = `Melanocytic nevi`;
     } else if (final === 6) {
-      bold.innerHTML = "Vascular Keratosis";
+      bold.innerHTML = `Vascular Keratosis`;
     } else {
       alert("Invalid image");
       return;
@@ -137,8 +137,8 @@ const getResult = function(e) {
     bold.style.fontWeight = 800;
     bold.style.color = "dodgerblue";
     bold.style.display = "flex";
+    document.getElementById("pretext").style.display = "flex";
     document.getElementById("uploading2s").style.display = "none";
-    document.getElementById("resultSkinny").innerHTML = result;
     document.getElementById("descriptions").style.display = "flex";
   });
 };
@@ -261,9 +261,12 @@ export default function SectionTabs() {
                           </div>
                         </div>
                         <br />
+                        <div id="pretext" style={{display: 'none', justifyContent: 'center', fontSize: 20}} >
+                        Type of Skin Lesion:
+                        </div> <br />
                         <div
                           id="resulttexts"
-                          style={{ display: "none", justifyContent: "center" }}
+                          style={{ display: "none", justifyContent: "center", fontSize: 25}}
                         ></div>
                         <p>
                           <h2>
