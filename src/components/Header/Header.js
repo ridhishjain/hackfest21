@@ -61,7 +61,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+  const { color, rightLinks, leftLinks, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
@@ -70,7 +70,7 @@ export default function Header(props) {
   });
   const brandComponent = (
     <Button className={classes.title} onClick={redirect}>
-      {"MEDIDOC"}
+      {"DOCTOR CORONA"}
     </Button>
   );
   return (

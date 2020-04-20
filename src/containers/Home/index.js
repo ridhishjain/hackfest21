@@ -11,9 +11,10 @@ import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 
-import SectionEye from "./Sections/SectionEye.js";
-import SectionBrain from "./Sections/SectionBrain.js";
-import SectionSkin from "./Sections/SectionSkin.js";
+import SectionChest from "./Sections/SectionChest.js";
+// import SectionEye from "./Sections/SectionEye.js";
+// import SectionBrain from "./Sections/SectionBrain.js";
+// import SectionSkin from "./Sections/SectionSkin.js";
 
 const useStyles = makeStyles(styles);
 
@@ -24,7 +25,7 @@ export default function Home(props) {
   return (
     <div>
       <Header
-        brand="MEDIDOC"
+        brand="DOCTOR CORONA"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -39,9 +40,9 @@ export default function Home(props) {
           <GridContainer>
             <GridItem>
               <div className={classes.brand}>
-                <h1 className={classes.title}>Medidoc</h1>
+                <h1 className={classes.title}>Doctor Corona</h1>
                 <h3 className={classes.subtitle}>
-                  Artificial Intelligence for medical Diagnosis and Prognosis
+                  Image calssifications and heatmap generations for chest X-rays
                 </h3>
               </div>
             </GridItem>
@@ -49,9 +50,7 @@ export default function Home(props) {
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionEye />
-        <SectionBrain />
-        <SectionSkin />
+        <SectionChest />
       </div>
       <Footer />
     </div>

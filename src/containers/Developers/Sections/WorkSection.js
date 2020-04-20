@@ -10,7 +10,9 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/work
 
 const useStyles = makeStyles(styles);
 
+
 const mailDevelopers = function() {
+/*
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const number = document.getElementById("number").value;
@@ -25,11 +27,12 @@ const mailDevelopers = function() {
   var twilio = require("twilio");
   var client = new twilio(accountSID, authToken);
 
-  /*client.messages.create({
+  client.messages.create({
     to: contactRidhish,
     from: number,
     body: `${name} ... ${email} ... ${message} ... ${resume}`
-  });*/
+  });
+*/
 };
 
 export default function WorkSection() {

@@ -64,12 +64,12 @@ export default function Footer(props) {
           &copy; {1900 + new Date().getYear()} ,  {" "}
           <Favorite className={classes.icon} /> made during{" "}
           <a
-            href="https://www.facebook.com/igdtuwinnerve/"
+            href="#"
             className={aClasses}
             target="_blank"
           >
-            Innerve 2019
-          </a>{" "}
+            COVID-19 hackathon, 2020
+          </a>{", by Ridhish Jain"}
         </div>
       </div>
     </footer>

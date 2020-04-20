@@ -10,7 +10,6 @@ import Home from "./containers/Home/index.js";
 import Developers from "./containers/Developers/index.js";
 import About from "./containers/About/index.js";
 import PrivacyPolicy from "./containers/PrivacyPolicy/index.js";
-import Auth from "./containers/Auth/index.js";
 import Feedback from "./containers/Feedback/index.js"
 import ProfilePage from "containers/ProfilePage/ProfilePage.js";
 
@@ -23,7 +22,6 @@ ReactDOM.render(
       <Route path="/about" component={About} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/auth" component={Auth} />
       <Route path="/feedback" component={Feedback} />
       <Route path="/" component={Home} />
     </Switch>
