@@ -34,7 +34,7 @@ const storeUrl = async function(e) {
 
 const store = async function(e) {
   image = e.target.files[0];
-  const uploadTask = storage.ref(`aptos/${image.name}`).put(image);
+  const uploadTask = storage.ref(`corona/${image.name}`).put(image);
   uploadTask.on(
     "state_changed",
     snapshot => {
@@ -46,7 +46,7 @@ const store = async function(e) {
     },
     async () => {
       await storage
-        .ref("aptos")
+        .ref("corona")
         .child(image.name)
         .getDownloadURL()
         .then(url => {
@@ -98,11 +98,25 @@ const getResult = function(e) {
   const bodyF = `{\n"url": "${imageURL}"\n}`;
 
   var options = {
+    'method': 'POST',
+    'url': 'http://34.71.122.83:8080/corona/',
+    'headers': {
+      'Content-Type': ['application/json', 'text/plain'],
+      'Access-Control-Allow-Origin': 'no-cors',
+    },
+    body: "{\n\t\"url\": \"https://firebasestorage.googleapis.com/v0/b/innerve-hackathon.appspot.com/o/corona%2Fcropped-1920-1080-686433.jpg?alt=media&token=9f6b447b-d1a7-4409-8ba2-e3f43ad6c51b\"\n}"
+  
+  };
+  request(options, function (error, response) { 
+    if (error) throw new Error(error);
+    console.log(response.body);
+  });
+
+  /*
+  var options = {
     method: "POST",
-    url: "http://10.42.0.1:5000/aptos/",
+    url: "http://34.71.122.83:8080/corona/",
     headers: {
-      Host: "10.42.0.1:5000",
-      Accept: "application/json",
       "Content-Type": "application/json,application/json"
     },
     body: bodyF
@@ -130,6 +144,7 @@ const getResult = function(e) {
       alert("no output");
       return;
     }
+
     bold.style.fontWeight = 800;
     bold.style.color = "dodgerblue";
     document.getElementById("resulttext").style.display = "flex";
@@ -141,6 +156,7 @@ const getResult = function(e) {
     document.getElementById("heatimage").src = heatmap;
     document.getElementById("description").style.display = "flex";
   });
+  */
 };
 
 const heading = {
