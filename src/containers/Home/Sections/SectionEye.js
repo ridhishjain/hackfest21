@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
 import DescriptionIcon from "@material-ui/icons/Description";
@@ -28,20 +27,20 @@ let heatmap = "http://10.42.0.1:5000/get-image/output_heat_map.png";
 let imageURL = null;
 let result = null;
 
-const storeUrl = async function(e) {
+const storeUrl = async function (e) {
   imageURL = e.target.value;
 };
 
-const store = async function(e) {
+const store = async function (e) {
   image = e.target.files[0];
   const uploadTask = storage.ref(`aptos/${image.name}`).put(image);
   uploadTask.on(
     "state_changed",
-    snapshot => {
+    () => {
       console.log("uploading...");
       document.getElementById("uploading").style.display = "inline";
     },
-    error => {
+    (error) => {
       console.log(error);
     },
     async () => {
@@ -49,7 +48,7 @@ const store = async function(e) {
         .ref("aptos")
         .child(image.name)
         .getDownloadURL()
-        .then(url => {
+        .then((url) => {
           imageURL = url;
           console.log(imageURL);
           document.getElementById("uploading").style.display = "none";
@@ -62,7 +61,7 @@ const store = async function(e) {
   );
 };
 
-const getResultByURL = function(e) {
+const getResultByURL = function () {
   console.log("getting results");
   imageURL = document.getElementById("materialUrl").value;
   var request = require("request");
@@ -74,12 +73,12 @@ const getResultByURL = function(e) {
     headers: {
       Host: "10.42.0.1:5000",
       Accept: "application/json",
-      "Content-Type": "application/json,application/json"
+      "Content-Type": "application/json,application/json",
     },
-    body: bodyF
+    body: bodyF,
   };
 
-  request(options, function(error, response, body) {
+  request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
     console.log(body);
@@ -90,7 +89,7 @@ const getResultByURL = function(e) {
   });
 };
 
-const getResult = function(e) {
+const getResult = function () {
   console.log("getting results");
   document.getElementById("uploading2").style.display = "flex";
   document.getElementById("resulttext").style.display = "flex";
@@ -103,12 +102,12 @@ const getResult = function(e) {
     headers: {
       Host: "10.42.0.1:5000",
       Accept: "application/json",
-      "Content-Type": "application/json,application/json"
+      "Content-Type": "application/json,application/json",
     },
-    body: bodyF
+    body: bodyF,
   };
 
-  request(options, function(error, response, body) {
+  request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
     console.log(body);
@@ -146,7 +145,7 @@ const getResult = function(e) {
 const heading = {
   display: "flex",
   justifyContent: "center",
-  marginBottom: "3%"
+  marginBottom: "3%",
 };
 
 export default function SectionTabs() {
@@ -183,7 +182,7 @@ export default function SectionTabs() {
                             <div
                               style={{
                                 display: "flex",
-                                justifyContent: "center"
+                                justifyContent: "center",
                               }}
                             >
                               <CircularProgress />{" "}
@@ -210,7 +209,7 @@ export default function SectionTabs() {
                           />
                         </div>
                       </div>
-                    )
+                    ),
                   },
                   {
                     tabName: "Upload Image Url",
@@ -223,22 +222,22 @@ export default function SectionTabs() {
                           type="text"
                           onChange={storeUrl}
                           formControlProps={{
-                            fullWidth: true
+                            fullWidth: true,
                           }}
                           inputProps={{
                             endAdornment: (
                               <InputAdornment position="end">
                                 <LinkIcon />
                               </InputAdornment>
-                            )
+                            ),
                           }}
                         />
                         <Button onClick={getResultByURL} color="primary">
                           Get Results
                         </Button>
                       </p>
-                    )
-                  }
+                    ),
+                  },
                 ]}
               />
             </GridItem>
@@ -257,7 +256,7 @@ export default function SectionTabs() {
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "center"
+                              justifyContent: "center",
                             }}
                           >
                             <CircularProgress />{" "}
@@ -294,7 +293,7 @@ export default function SectionTabs() {
                             <div
                               style={{
                                 display: "flex",
-                                justifyContent: "center"
+                                justifyContent: "center",
                               }}
                               id="result"
                             >
@@ -303,7 +302,7 @@ export default function SectionTabs() {
                           </h2>
                         </p>
                       </span>
-                    )
+                    ),
                   },
                   {
                     tabButton: "Heat-Map",
@@ -318,7 +317,7 @@ export default function SectionTabs() {
                           />
                         </p>
                       </span>
-                    )
+                    ),
                   },
                   {
                     tabButton: "Description",
@@ -331,6 +330,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="http://academictorrents.com/details/d8653db45e7f111dc2c1b595bdac7ccf695efcfd"
+                            rel="noreferrer"
                           >
                             {" "}
                             2019 diabetic retinopathy dataset{" "}
@@ -340,6 +340,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://arxiv.org/abs/1905.11946"
+                            rel="noreferrer"
                           >
                             {" "}
                             EfficientNet-b0{" "}
@@ -349,6 +350,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"
+                            rel="noreferrer"
                           >
                             {" "}
                             Ranger{" "}
@@ -359,6 +361,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://en.wikipedia.org/wiki/Cohen%27s_kappa"
+                            rel="noreferrer"
                           >
                             {" "}
                             Kappa ( qwk ){" "}
@@ -366,8 +369,8 @@ export default function SectionTabs() {
                           - 0.902
                         </p>
                       </div>
-                    )
-                  }
+                    ),
+                  },
                 ]}
               />
             </GridItem>

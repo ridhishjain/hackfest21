@@ -6,11 +6,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 // @material-ui/icons
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
 import DescriptionIcon from "@material-ui/icons/Description";
-import BrokenImageIcon from "@material-ui/icons/BrokenImage";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -29,11 +27,11 @@ let heatmap = "http://10.42.0.1:5000/get-image/output_heat_map.png";
 let imageURL = null;
 let result = null;
 
-const storeUrl = async function(e) {
+const storeUrl = async function (e) {
   imageURL = e.target.value;
 };
 
-const store = async function(e) {
+const store = async function (e) {
   image = e.target.files[0];
   const uploadTask = storage.ref(`brainy/${image.name}`).put(image);
   uploadTask.on(
@@ -42,7 +40,7 @@ const store = async function(e) {
       console.log("uploading...");
       document.getElementById("uploadingBrainy").style.display = "inline";
     },
-    error => {
+    (error) => {
       console.log(error);
     },
     async () => {
@@ -50,7 +48,7 @@ const store = async function(e) {
         .ref("brainy")
         .child(image.name)
         .getDownloadURL()
-        .then(url => {
+        .then((url) => {
           imageURL = url;
           console.log(imageURL);
           document.getElementById("uploadingBrainy").style.display = "none";
@@ -64,7 +62,7 @@ const store = async function(e) {
   );
 };
 
-const getResultByURL = function(e) {
+const getResultByURL = function () {
   console.log("getting results");
   imageURL = document.getElementById("materialUrlBrainy").value;
   var request = require("request");
@@ -76,12 +74,12 @@ const getResultByURL = function(e) {
     headers: {
       Host: "10.42.0.1:5000",
       Accept: "application/json",
-      "Content-Type": "application/json,application/json"
+      "Content-Type": "application/json,application/json",
     },
-    body: bodyF
+    body: bodyF,
   };
 
-  request(options, function(error, response, body) {
+  request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
     console.log(body);
@@ -91,7 +89,7 @@ const getResultByURL = function(e) {
   });
 };
 
-const getResult = function(e) {
+const getResult = function () {
   console.log("getting results");
   document.getElementById("uploading2b").style.display = "flex";
   document.getElementById("resulttextb").style.display = "flex";
@@ -104,12 +102,12 @@ const getResult = function(e) {
     headers: {
       Host: "10.42.0.1:5000",
       Accept: "application/json",
-      "Content-Type": "application/json,application/json"
+      "Content-Type": "application/json,application/json",
     },
-    body: bodyF
+    body: bodyF,
   };
 
-  request(options, function(error, response, body) {
+  request(options, function (error, response, body) {
     if (error) throw new Error(error);
 
     console.log(body);
@@ -146,7 +144,7 @@ const getResult = function(e) {
 const heading = {
   display: "flex",
   justifyContent: "center",
-  marginBottom: "3%"
+  marginBottom: "3%",
 };
 
 export default function SectionTabs() {
@@ -180,7 +178,7 @@ export default function SectionTabs() {
                             <div
                               style={{
                                 display: "flex",
-                                justifyContent: "center"
+                                justifyContent: "center",
                               }}
                             >
                               <CircularProgress />{" "}
@@ -207,7 +205,7 @@ export default function SectionTabs() {
                           />
                         </div>
                       </div>
-                    )
+                    ),
                   },
                   {
                     tabName: "Upload Image Url",
@@ -220,22 +218,22 @@ export default function SectionTabs() {
                           type="text"
                           onChange={storeUrl}
                           formControlProps={{
-                            fullWidth: true
+                            fullWidth: true,
                           }}
                           inputProps={{
                             endAdornment: (
                               <InputAdornment position="end">
                                 <LinkIcon />
                               </InputAdornment>
-                            )
+                            ),
                           }}
                         />
                         <Button onClick={getResultByURL} color="primary">
                           Get Results
                         </Button>
                       </p>
-                    )
-                  }
+                    ),
+                  },
                 ]}
               />
             </GridItem>
@@ -254,7 +252,7 @@ export default function SectionTabs() {
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "center"
+                              justifyContent: "center",
                             }}
                           >
                             <CircularProgress />{" "}
@@ -306,7 +304,7 @@ export default function SectionTabs() {
                             <div
                               style={{
                                 display: "flex",
-                                justifyContent: "center"
+                                justifyContent: "center",
                               }}
                               id="resultBrainy"
                             >
@@ -315,7 +313,7 @@ export default function SectionTabs() {
                           </h2>
                         </p>
                       </span>
-                    )
+                    ),
                   },
                   {
                     tabButton: "Description",
@@ -328,6 +326,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection"
+                            rel="noreferrer"
                           >
                             {" "}
                             Brain MRI Images for Brain Tumour Detection{" "}
@@ -337,6 +336,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://arxiv.org/abs/1905.11946"
+                            rel="noreferrer"
                           >
                             {" "}
                             EfficientNet-b0{" "}
@@ -346,6 +346,7 @@ export default function SectionTabs() {
                           <a
                             target="_blank"
                             href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"
+                            rel="noreferrer"
                           >
                             {" "}
                             Ranger{" "}
@@ -358,8 +359,8 @@ export default function SectionTabs() {
                           Kappa ( qwk ) - 90.42 <br />
                         </p>
                       </div>
-                    )
-                  }
+                    ),
+                  },
                 ]}
               />
             </GridItem>

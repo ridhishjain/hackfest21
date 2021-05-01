@@ -56,7 +56,7 @@ export default function ProductSection() {
                 color="rose"
                 horizontal={{
                   tabsGrid: { xs: 12, sm: 4, md: 4 },
-                  contentGrid: { xs: 12, sm: 8, md: 8 }
+                  contentGrid: { xs: 12, sm: 8, md: 8 },
                 }}
                 tabs={[
                   {
@@ -70,7 +70,7 @@ export default function ProductSection() {
                         iconColor="info"
                         vertical
                       />
-                    )
+                    ),
                   },
                   {
                     tabButton: "Brain Tumour",
@@ -83,7 +83,7 @@ export default function ProductSection() {
                         iconColor="success"
                         vertical
                       />
-                    )
+                    ),
                   },
                   {
                     tabButton: "Skin Cancer",
@@ -96,8 +96,8 @@ export default function ProductSection() {
                         iconColor="danger"
                         vertical
                       />
-                    )
-                  }
+                    ),
+                  },
                 ]}
               />
             </GridItem>

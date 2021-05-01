@@ -31,7 +31,7 @@ export default function Home(props) {
         color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />

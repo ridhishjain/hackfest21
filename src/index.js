@@ -10,7 +10,7 @@ import Home from "./containers/Home/index.js";
 import Developers from "./containers/Developers/index.js";
 import About from "./containers/About/index.js";
 import PrivacyPolicy from "./containers/PrivacyPolicy/index.js";
-import Feedback from "./containers/Feedback/index.js"
+import Feedback from "./containers/Feedback/index.js";
 import ProfilePage from "containers/ProfilePage/ProfilePage.js";
 
 var history = createBrowserHistory();

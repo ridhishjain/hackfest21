@@ -14,16 +14,16 @@ import team1 from "assets/img/faces/nainesh.jpg";
 
 const useStyles = makeStyles(styles);
 
-const github = function() {
+const github = function () {
   window.location = "https://github.com/naineshhulke";
 };
-const linkedin = function() {
+const linkedin = function () {
   window.location = "https://www.linkedin.com/in/naineshhulke/";
 };
-const facebook = function() {
+const facebook = function () {
   window.location = "https://www.facebook.com/nainesh.hulke.5";
 };
-const instagram = function() {
+const instagram = function () {
   window.location = "https://www.instagram.com/naineshhulke/";
 };
 

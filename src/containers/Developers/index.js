@@ -38,7 +38,7 @@ export default function Developers(props) {
         fixed
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />

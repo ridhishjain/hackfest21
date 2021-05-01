@@ -10,9 +10,8 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/work
 
 const useStyles = makeStyles(styles);
 
-
-const mailDevelopers = function() {
-/*
+const mailDevelopers = function () {
+  /*
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const number = document.getElementById("number").value;
@@ -43,9 +42,8 @@ export default function WorkSection() {
         <GridItem cs={12} sm={12} md={8}>
           <h2 className={classes.title}>Work with us</h2>
           <h4 className={classes.description}>
-            Want to join our team? Here's what to do. Just mail us your name,
-            email id and why do you want to work with us with a resume of
-            yourself.
+            Want to join our team? Just mail us your name, email id and why do
+            you want to work with us with a resume of yourself.
           </h4>
           <form>
             <GridContainer>
@@ -54,7 +52,7 @@ export default function WorkSection() {
                   labelText="Your Name"
                   id="name"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                 />
               </GridItem>
@@ -63,7 +61,7 @@ export default function WorkSection() {
                   labelText="Your Email"
                   id="email"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                 />
               </GridItem>
@@ -72,7 +70,7 @@ export default function WorkSection() {
                   labelText="Your Contact Number"
                   id="number"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                 />
               </GridItem>
@@ -81,7 +79,7 @@ export default function WorkSection() {
                   labelText="Your Resume"
                   id="resume"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                 />
               </GridItem>
@@ -90,11 +88,11 @@ export default function WorkSection() {
                 id="message"
                 formControlProps={{
                   fullWidth: true,
-                  className: classes.textArea
+                  className: classes.textArea,
                 }}
                 inputProps={{
                   multiline: true,
-                  rows: 5
+                  rows: 5,
                 }}
               />
               <GridContainer justify="center">

@@ -66,7 +66,7 @@ export default function SectionTypography() {
                   <p>
                     While using our Service, we may ask you to provide us with
                     certain personally identifiable information that can be used
-                    to contact or identify you ("Personal Data"). Personally
+                    to contact or identify you (Personal Data). Personally
                     identifiable information may include, but is not limited to:
                   </p>
                   <ul>
@@ -85,12 +85,12 @@ export default function SectionTypography() {
                 <h6>
                   <p>
                     We may also collect information how the Service is accessed
-                    and used ("Usage Data"). This Usage Data may include
-                    information such as your computer's Internet Protocol
-                    address (e.g. IP address), browser type, browser version,
-                    the pages of our Service that you visit, the time and date
-                    of your visit, the time spent on those pages, unique device
-                    identifiers and other diagnostic data.
+                    and used (Usage Data). This Usage Data may include
+                    information such as your Internet Protocol address (e.g. IP
+                    address), browser type, browser version, the pages of our
+                    Service that you visit, the time and date of your visit, the
+                    time spent on those pages, unique device identifiers and
+                    other diagnostic data.
                   </p>
                 </h6>
               </div>
@@ -220,7 +220,7 @@ export default function SectionTypography() {
               <h6>
                 <p>
                   We may employ third party companies and individuals to
-                  facilitate our Service ("Service Providers"), to provide the
+                  facilitate our Service (Service Providers), to provide the
                   Service on our behalf, to perform Service-related services or
                   to assist us in analyzing how our Service is used.
                 </p>
@@ -240,7 +240,7 @@ export default function SectionTypography() {
                 <p>
                   Our Service may contain links to other sites that are not
                   operated by us. If you click on a third party link, you will
-                  be directed to that third party's site. We strongly advise you
+                  be directed to that third party site. We strongly advise you
                   to review the Privacy Policy of every site you visit.
                 </p>
                 <p>
@@ -252,13 +252,13 @@ export default function SectionTypography() {
             </div>
 
             <div>
-              <h3 className={classes.title}>Children's Privacy</h3>
+              <h3 className={classes.title}>Children Privacy</h3>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <h6>
                 <p>
                   Our Service does not address anyone under the age of 18
-                  ("Children").
+                  (Children).
                 </p>
                 <p>
                   We do not knowingly collect personally identifiable
@@ -285,7 +285,7 @@ export default function SectionTypography() {
                 <p>
                   We will let you know via email and/or a prominent notice on
                   our Service, prior to the change becoming effective and update
-                  the "effective date" at the top of this Privacy Policy.
+                  the effective date at the top of this Privacy Policy.
                 </p>
                 <p>
                   You are advised to review this Privacy Policy periodically for

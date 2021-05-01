@@ -28,12 +28,17 @@ export default function CustomTabs(props) {
   const { headerColor, plainTabs, tabs, title, rtlActive } = props;
   const cardTitle = classNames({
     [classes.cardTitle]: true,
-    [classes.cardTitleRTL]: rtlActive
+    [classes.cardTitleRTL]: rtlActive,
   });
   return (
     <Card plain={plainTabs}>
-      <CardHeader color={headerColor} plain={plainTabs}
-        style={{backgrounhd: 'linear-gradient:(60deg, rgb(16, 57, 76), rgba(16, 57, 76, 0.75))'}}
+      <CardHeader
+        color={headerColor}
+        plain={plainTabs}
+        style={{
+          backgrounhd:
+            "linear-gradient:(60deg, rgb(16, 57, 76), rgba(16, 57, 76, 0.75))",
+        }}
       >
         {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
         <Tabs
@@ -41,7 +46,7 @@ export default function CustomTabs(props) {
           onChange={handleChange}
           classes={{
             root: classes.tabsRoot,
-            indicator: classes.displayNone
+            indicator: classes.displayNone,
           }}
         >
           {tabs.map((prop, key) => {
@@ -53,7 +58,7 @@ export default function CustomTabs(props) {
                     <Icon>{prop.tabIcon}</Icon>
                   ) : (
                     <prop.tabIcon />
-                  )
+                  ),
               };
             }
             return (
@@ -62,7 +67,7 @@ export default function CustomTabs(props) {
                   root: classes.tabRootButton,
                   label: classes.tabLabel,
                   selected: classes.tabSelected,
-                  wrapper: classes.tabWrapper
+                  wrapper: classes.tabWrapper,
                 }}
                 key={key}
                 label={prop.tabName}
@@ -91,16 +96,16 @@ CustomTabs.propTypes = {
     "danger",
     "info",
     "primary",
-    "rose"
+    "rose",
   ]),
   title: PropTypes.string,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       tabName: PropTypes.string.isRequired,
       tabIcon: PropTypes.object,
-      tabContent: PropTypes.node.isRequired
+      tabContent: PropTypes.node.isRequired,
     })
   ),
   rtlActive: PropTypes.bool,
-  plainTabs: PropTypes.bool
+  plainTabs: PropTypes.bool,
 };

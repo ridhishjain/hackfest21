@@ -28,23 +28,20 @@ import image from "assets/img/feedback.jpg";
 
 const useStyles = makeStyles(styles);
 
-const send = function() {
+const send = function () {
   const name = document.getElementById("name").value;
   const number = document.getElementById("number").value;
   const email = document.getElementById("email").value;
   const review = document.getElementById("review").value;
   const suggestion = document.getElementById("suggestion").value;
 
-  database
-    .ref("feedback/")
-    .push()
-    .set({
-      name: name,
-      number: number,
-      email: email,
-      review: review,
-      suggestion: suggestion
-    });
+  database.ref("feedback/").push().set({
+    name: name,
+    number: number,
+    email: email,
+    review: review,
+    suggestion: suggestion,
+  });
 
   alert("feedback sent");
   document.getElementById("name").value = "";
@@ -56,7 +53,7 @@ const send = function() {
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  setTimeout(function() {
+  setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
@@ -75,7 +72,7 @@ export default function LoginPage(props) {
         style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "cover",
-          backgroundPosition: "top center"
+          backgroundPosition: "top center",
         }}
       >
         <div className={classes.container} style={{ paddingBottom: 100 }}>
@@ -95,7 +92,7 @@ export default function LoginPage(props) {
                           labelText="Name..."
                           id="name"
                           formControlProps={{
-                            fullWidth: true
+                            fullWidth: true,
                           }}
                           inputProps={{
                             type: "text",
@@ -103,7 +100,7 @@ export default function LoginPage(props) {
                               <InputAdornment position="end">
                                 <People className={classes.inputIconsColor} />
                               </InputAdornment>
-                            )
+                            ),
                           }}
                         />
                       </GridItem>
@@ -112,7 +109,7 @@ export default function LoginPage(props) {
                           labelText="Number..."
                           id="number"
                           formControlProps={{
-                            fullWidth: true
+                            fullWidth: true,
                           }}
                           inputProps={{
                             type: "number",
@@ -122,7 +119,7 @@ export default function LoginPage(props) {
                                   className={classes.inputIconsColor}
                                 />
                               </InputAdornment>
-                            )
+                            ),
                           }}
                         />
                       </GridItem>
@@ -131,7 +128,7 @@ export default function LoginPage(props) {
                       labelText="Email..."
                       id="email"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         type: "email",
@@ -139,14 +136,14 @@ export default function LoginPage(props) {
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Your Review..."
                       id="review"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         type: "text",
@@ -156,14 +153,14 @@ export default function LoginPage(props) {
                               className={classes.inputIconsColor}
                             />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Your Suggestions..."
                       id="suggestion"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         type: "text",
@@ -173,7 +170,7 @@ export default function LoginPage(props) {
                               className={classes.inputIconsColor}
                             />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                   </CardBody>

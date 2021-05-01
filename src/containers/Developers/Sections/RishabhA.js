@@ -14,16 +14,16 @@ import team1 from "assets/img/faces/rishabha.jpg";
 
 const useStyles = makeStyles(styles);
 
-const github = function() {
+const github = function () {
   window.location = "https://github.com/rishabh-997";
 };
-const linkedin = function() {
+const linkedin = function () {
   window.location = "https://www.linkedin.com/in/rishabh-997/";
 };
-const facebook = function() {
+const facebook = function () {
   window.location = "https://www.facebook.com/dhandharia1";
 };
-const instagram = function() {
+const instagram = function () {
   window.location = "https://www.instagram.com/rishabh7512/";
 };
 
