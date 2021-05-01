@@ -68,7 +68,7 @@ export default function Footer(props) {
             className={aClasses}
             target="_blank"
           >
-            COVID-19 hackathon, 2020
+            Hackfest 2021
           </a>{", by Ridhish Jain"}
         </div>
       </div>

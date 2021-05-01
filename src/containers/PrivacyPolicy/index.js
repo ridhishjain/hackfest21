@@ -12,6 +12,7 @@ import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import Statement from "./Sections/SectionPrivacyPolicy.js";
+import i from "assets/img/policy.jpg";
 
 const dashboardRoutes = [];
 
@@ -34,7 +35,7 @@ export default function PrivacyPolicy(props) {
         }}
         {...rest}
       />
-      <Parallax filter image={require("assets/img/policy.jpg")}>
+      <Parallax filter image={i}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
